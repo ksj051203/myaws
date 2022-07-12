@@ -16,13 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run scripts in server
-        uses: appleboy/ssh-action@main
+        uses: appleboy/ssh-action@master
         with:
           key: ${{ secrets.SSH_KEY }}
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           script: |
             cd myaws
-            git pull
-            pm2 stop index
-            pm2 start index
+            git pull 
